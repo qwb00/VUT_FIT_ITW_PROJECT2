@@ -1,0 +1,702 @@
+/* Basic body styles, setting layout behavior */
+body {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Smooth scrolling behavior */
+html {
+    scroll-behavior: smooth;
+  }
+
+/* Styling for all h1 text */
+h1 {
+    color: #0d6f65; 
+    margin-bottom: 30px; 
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 36px; 
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* General paragraph styles */
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+/* Header styles, including background and text alignment */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #0d6f65;
+    padding-bottom: 15px;
+    width: 100%;
+    height: 40%;
+    padding-top: 30px;
+}
+
+/* Styling for header title and its contents */
+#header-title {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-right: 260px;
+}
+
+/* Profile picture styling, ensures circular form */
+#header-title::before {
+    display: block;
+    width: 250px;
+    height: 250px;
+    background-image: url('images/Richard.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 7px solid white;
+    content: "";
+    transition: transform 0.3s ease; 
+    aspect-ratio: 1 / 1;
+}
+
+/* Enlarges profile picture on hover */
+#header-title:hover::before {
+    transform: scale(1.1); 
+}
+
+/* Layout for header information items */
+#header-title .info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+/* General text styling in header */
+#header-title span {
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+}    
+
+/* Specific styling for separate lines */
+#header-title span:nth-child(1) a {
+    font-size: 5vh;
+    font-weight: 900;
+    text-decoration: none; 
+    color: white; 
+}
+
+#header-title span:nth-child(2) {
+    font-size: 3vh;
+    font-weight: 900;
+}
+
+#header-title span:nth-child(3) {
+    font-style: italic;
+    font-size: 3vh;
+    margin-bottom: 10px;
+    left: -20px;
+}
+
+/* Quotes for 3rd line of header */
+#header-title span:nth-child(3)::before {
+    content: open-quote;
+    font-style: italic;
+}
+
+#header-title span:nth-child(3)::after {
+    content: close-quote;
+    font-style: italic;
+}
+
+#header-title span:nth-child(4) a {
+    font-size: 3vh; 
+    text-decoration: none; 
+    color: white; 
+}
+
+
+#header-title span:nth-child(4) a:hover {
+    color: #d9d9d9;
+    cursor: pointer;
+}
+
+/* Media queries adjust layout for smaller screens */
+@media (max-width: 1072px) {
+    header {
+        height: auto; 
+        padding-top: 20px; 
+        padding-bottom: 20px; 
+    }
+
+    #header-title {
+        margin-right: 0; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    #header-title::before {
+        width: 200px; 
+        height: 200px; 
+        border-width: 5px; 
+    }
+
+    #header-title .info {
+        align-items: center; 
+        gap: 5px; 
+        margin-top: 0px;
+    }
+
+    #header-title span {
+        font-size: 4vh; 
+    }
+
+    #header-title span:nth-child(2), 
+    #header-title span:nth-child(3),
+    #header-title span:nth-child(4) {
+        font-size: 2.5vh;
+    }
+
+    #header-title span:nth-child(3)::before,
+    #header-title span:nth-child(3)::after {
+        display: none; 
+    }
+}
+
+/* Main navigation menu styling */
+#header-menu {
+    margin-top: 32px;
+}
+
+/* Styling for navigation links with alignment and spacing */
+#header-menu ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex;
+    gap: 4vw;
+}
+
+/* Link styling in the main menu */
+#header-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 2vh;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center; 
+}
+
+/* Icon margin in navigation links */
+#header-menu i {
+    margin-right: 8px; 
+}
+
+/* Hover effect for links in the main menu */
+#header-menu a:hover {
+    color: #d9d9d9;
+}
+
+/* Adjusts layout and styles for navigation on small screens */
+@media (max-width: 768px) {
+    #header-menu {
+        gap: 1vw;  
+    }
+
+    #header-menu a {
+        justify-content: center;
+        font-size: 0;  
+        width: 40px; 
+        padding: 5px; 
+    }
+
+    #header-menu i {
+        font-size: 2vh; 
+        margin: 0;  
+    }
+
+    #header-menu a:hover::after {
+        display: none;  
+    }
+}
+
+/* Section for displaying personal details about the individual */
+#about {
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    max-width: 1200px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+/* Content padding within the About section */
+#about .section-content {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Hover effect that increases header font size */
+#about:hover h1 {
+    font-size: 40px;
+    transition: all 0.3s ease;
+}
+
+/* Styles paragraph text and centers it on hover */
+#about .section-content p {
+    font-size: 16px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Hover effect that enlarges paragraph text */
+#about:hover .section-content p {
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+/* Career section designed to display professional experiences */
+#career {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    padding: 20px;
+    margin: auto;
+}
+
+/* Flexible content container for career entries */
+#career .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px; 
+    width: 100%; 
+}
+
+/* Individual career entries, styled as cards */
+#career .section-content div {
+    flex: 1 1 30%;
+    min-width: 250px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    border-right: #4DB8AC 4px solid;
+    border-bottom: #4DB8AC 4px solid;
+}
+
+/* Styles the headers within career entries */
+#career h3 {
+    color: #0d6f65;
+    font-weight: 900;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px; 
+    transition: all 0.3s ease;
+}
+
+/* Ensures that paragraph text fills available space */
+#career p {
+    flex-grow: 1;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+/* Styles and positions date spans within career entries */
+#career .dates {
+    align-self: flex-end;
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-right: #4DB8AC 2px solid;
+    border-bottom: #4DB8AC 2px solid;
+    font-size: 18px;
+}
+
+/* Changes color on hover to highlight interactive elements */
+#career .dates:hover {
+    color:#4DB8AC;
+    cursor: pointer;
+}
+
+/* Styles for images within career entries */
+#career img {
+    width: 35%;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for career entry titles, paragraphs, and images */
+#career .section-content div:hover h3 {
+    color:#4DB8AC;
+    font-size: 23px;
+    transition: all 0.3s ease;
+}
+
+#career .section-content div:hover p {
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+#career .section-content div:hover img {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* Styling for the skills section, using flex layout for alignment */
+#skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+    padding: 60px 20px; /* Consistent padding around the content */
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0 auto; /* Centers the section on the page */
+    width: 100%;
+    max-width: 1200px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Detailed layout for skills content, using flexbox for responsive spacing */
+#skills .section-content {
+    display: flex;
+    justify-content: space-between; /* Distributes space between skill blocks */
+    width: 100%;
+    gap: 2vw; /* Responsive gap based on viewport width */
+}
+
+/* Default style for individual skill blocks with interactive effects */
+.skill-block {
+    flex: 1;
+    margin: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.3s ease, padding 0.3s ease; 
+    z-index: 0;
+}
+
+/* Hover effects to slightly enlarge skill blocks and increase padding dynamically */
+.skill-block:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* Header and list items inside skill blocks have enhanced readability and interactivity */
+.skill-block h3,
+.skill-block li {
+    transition: transform 0.3s ease;
+    z-index: 1; 
+    position: relative;
+}
+
+/* Increases size of text on hover to draw attention */
+.skill-block:hover h3,
+.skill-block:hover li {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Text and hover styles for skill block headings */
+.skill-block h3 {
+    color: #0d6f65; 
+    margin-bottom: 10px;
+    font-size: 25px;
+    transition: transform 0.3s ease;
+}
+
+/* Unordered list styling in skill blocks */
+.skill-block ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+/* Styling for list items in skill blocks with a hover effect */
+.skill-block li {
+    margin-bottom: 5px; 
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Changes list item color on hover to indicate interactivity */
+.skill-block li:hover {
+    color: #4DB8AC;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #skills .section-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .skill-block {
+        flex: none;
+        width: calc(100% - 40px);
+        margin: 10px 20px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* Section for displaying testimonials with a light background and centered text */
+#testimonials {
+    background-color: #f8f9fa;
+    width: calc(100% - 5px);
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #0d6f65;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding-bottom: 80px;
+    padding-top: 40px;
+    max-width: 1200px;
+}
+
+/* Styles for individual testimonials, giving them a card-like appearance */
+blockquote {
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-left: 5px solid #4DB8AC;
+    margin: 20px auto;
+    padding: 60px;
+    max-width: 1000px;
+    text-align: left;
+    position: relative;
+    width: 80%;
+}
+
+/* Styling for images in testimonials, positioning and visual effects */
+blockquote img {
+    width: 180px;  
+    height: 180px; 
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0.8;
+    transition: all 0.3s ease
+}
+
+/* Hover effect to enhance image visibility and scale */
+blockquote:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+    transition: all 0.3s ease
+}
+
+blockquote:nth-child(5) img {
+    top: 15px;
+}
+
+/* Paragraph styling inside testimonials for clear readability */
+blockquote p {
+    padding-left: 140px; 
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    font-size: 18px; 
+    margin-bottom: 10px;
+    margin-left: 40px;
+    transition: all 0.3s ease;
+}
+
+/* Styling for footer in testimonials, which contains the attribution */
+blockquote footer {
+    font-style: italic;
+    color: #999;
+    padding-left: 140px;
+    margin-left: 40px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for paragraphs and footers to enhance interaction */
+blockquote:hover p {
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+blockquote:hover footer {
+    color: #0d6f65;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Awards section styling */
+#awards {
+    background-color: #ffffff;
+    max-width: 1200px;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1; 
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* List styling in awards section for clean layout */
+#awards ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual list items in awards with hover effects */
+#awards li {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #cccccc;
+    color: #444;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for list items in awards */
+#awards li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Strong tag styling in awards for emphasis */
+#awards strong {
+    color: #0d6f65;
+    font-weight: bold;
+}
+
+/* Main footer styling, including background and layout */
+#main-footer {
+    background-color: #0d6f65;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 5px solid #4DB8AC;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Adjusts footer content layout and padding */
+#main-footer div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; 
+}
+
+#main-footer span {
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Fixed menu visibility and behavior */
+#fixed-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto; 
+    white-space: nowrap;
+}
+
+#fixed-menu.visible {
+    transform: translateY(0);
+}
+
+#fixed-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#fixed-menu li {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#fixed-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px;
+}
+
+#fixed-menu a:hover {
+    color: #4DB8AC;
+}
+
+@media (max-width: 424px) {
+    #fixed-menu li {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+/* Adjusts blockquote layout on small devices */
+@media (max-width: 768px) {
+    blockquote {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        text-align: center;
+    }
+
+    blockquote img {
+        width: 100%;
+        height: auto; 
+        position: relative; 
+        top: 0;
+        left: 0;
+        margin-bottom: 20px;
+        object-fit: cover;
+        border-radius: 0%;
+    }
+
+    blockquote p {
+        padding: 0;
+        margin: 0 0 10px;
+        font-size: 16px;
+    }
+
+    blockquote footer {
+        padding: 0;
+        font-size: 14px;
+        color: #666;
+    }
+}
